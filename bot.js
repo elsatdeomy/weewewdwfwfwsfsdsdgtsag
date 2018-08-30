@@ -292,4 +292,12 @@ client.on('guildMemberAdd',async member => {
 });
 });
 
+client.on('message', message => {
+    if (message.content.toLowerCase().startsWith(prefix + "B.join")) {
+        if (message.guild.members.get(client.user.id).voiceChannel) return;
+            message.member.voiceChannel.join()
+        message.channel.send('Ok, joined your voice channel.')
+    };
+}); 
+
 client.login(process.env.BOT_TOKEN);
