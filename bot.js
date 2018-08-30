@@ -97,7 +97,7 @@ client.on('message', message => {
     });
 
 client.on('message',async msg => {
-  var p = "*";
+  var p = "B.";
   if(msg.content.startsWith(p + "settime")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
