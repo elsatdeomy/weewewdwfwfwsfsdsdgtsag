@@ -307,8 +307,6 @@ if (command === prefix+ `join`) {
 
 });
 
-const Util = require('discord.js');
-
 const getYoutubeID = require('get-youtube-id');
 
 const fetchVideoInfo = require('youtube-info');
