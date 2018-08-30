@@ -232,7 +232,7 @@ ${user} انت معاقب بميوت كتابي بسبب مخالفة القوا
  
 });
 
-hero.on('guildMemberAdd',async member => {
+client.on('guildMemberAdd',async member => {
   const Canvas = require('canvas');
   const jimp = require('jimp');
   const w = ['./welcome_4.png'];
