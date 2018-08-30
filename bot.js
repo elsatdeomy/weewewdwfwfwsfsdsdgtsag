@@ -1,6 +1,6 @@
 const fs = require("fs")
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({disableEveryone: true});
 const prefix = '.'
 
 client.on('ready', () => {
@@ -323,7 +323,6 @@ const ytdl = require('ytdl-core');
 
 const gif = require("gif-search");
 
-const client = new Discord.Client({disableEveryone: true});
 
 
 client.on('message', async msg => { 
