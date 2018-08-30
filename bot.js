@@ -292,4 +292,19 @@ client.on('guildMemberAdd',async member => {
 });
 });
 
+client.on("message", async message => {
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return;
+    if (!message.member.voiceChannel) return;
+    let messageArray = message.content.split(" ");
+    let command = messageArray[0];
+
+if (command === prefix+ `join`) {
+
+        message.member.voiceChannel.join()
+    message.channel.send('**Joined**')
+};
+
+});
+
 client.login(process.env.BOT_TOKEN);
