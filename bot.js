@@ -595,18 +595,4 @@ hours = 12;
  
 });
 
- client.on('message', message => {
-   if(message.content.startsWith(prefix + "7rf")) {
- let args = message.content.split(' ').slice(1);
-message.channel.sendMessage("𝓒𝓗𝓐𝓣𝓣𝓘𝓝𝓖-شات", {embed: {
-      title: `tag`,
-      color: 0x06DF00,
-      description: `\n ${zalgo(args.join(' '))}`,
-     
-    }
-    });
-  }
-});
-
-
 client.login(process.env.BOT_TOKEN);
