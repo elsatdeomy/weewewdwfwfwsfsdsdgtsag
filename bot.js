@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const Util = require('discord.js');
+const client = require('discord.js');
 const prefix = ".";
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
