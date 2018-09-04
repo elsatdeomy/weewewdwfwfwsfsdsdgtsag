@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const utill = require('discord.js');
+const client = require('discord.js');
 const prefix = ".";
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
@@ -601,7 +601,7 @@ hours = 12;
  message.channel.sendMessage("", {embed: {
       title: `tag`,
       color: 0x06DF00,
-      description: `\n ${utill(args.join(' '))}`,
+      description: `\n ${client(args.join(' '))}`,
      
     }
     });
