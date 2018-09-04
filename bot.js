@@ -601,7 +601,7 @@ hours = 12;
  message.channel.sendMessage("", {embed: {
       title: `tag`,
       color: 0x06DF00,
-      description: `\n ${client(args.join(' '))}`,
+      description: `\n ${utill(args.join(' '))}`,
      
     }
     });
