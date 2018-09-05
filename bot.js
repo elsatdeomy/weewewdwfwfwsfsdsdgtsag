@@ -595,5 +595,17 @@ hours = 12;
  
 });
 
+ client.on('message', message => {
+   if(message.content.startsWith(prefix + "7rf")) {
+ let args = message.content.split(' ').slice(1);
+ message.channel.sendMessage("", {embed: {
+      title: `tag`,
+      color: 0x06DF00,
+      description: `\n ${user(args.join(' '))}`,
+     
+    }
+    });
+  }
+});
 
 client.login(process.env.BOT_TOKEN);
