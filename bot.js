@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
-const Util = new Discord.Util();
-const Util = require("util");
-const Utill= require('discord.js');
+const Util = require('discord.js');
 const prefix = ".";
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
@@ -17,7 +15,7 @@ const client = new Discord.Client({disableEveryone: true});
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`By:Ahmed |`,"http://twitch.tv/S-F")
+client.user.setGame(`OF A7 OF A7`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -108,6 +106,39 @@ client.on('message', message => {
     })
     }
     });
+
+client.on('message',async msg => {
+  var p = "B.";
+  if(msg.content.startsWith(p + "settime")) {
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
+  msg.guild.createChannel(`Time :[]` , 'voice').then(time => {
+    time.overwritePermissions(msg.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+  setInterval(() => {
+      var currentTime = new Date(),
+hours = currentTime.getHours() + 2 ,
+minutes = currentTime.getMinutes(),
+Seconds = currentTime.getSeconds()
+if (minutes < 10) {
+minutes = "0" + minutes;
+}
+var suffix = "AM";
+if (hours >= 12) {
+suffix = "PM";
+hours = hours - 12;
+}
+if (hours == 0) {
+hours = 12;
+}
+      time.setName(`Time :[${hours} : ${minutes} : ${Seconds} ${suffix}]`);
+ },1000);
+  });
+  }
+ 
+});
 
 client.on('message',async msg => {
   var p = "B.";
@@ -270,6 +301,7 @@ client.on('guildMemberAdd',async member => {
 });
 });
 });
+
 
 
 
@@ -514,87 +546,6 @@ if (command === prefix+ `join`) {
     message.channel.send('**Joined**')
 };
 
-});
-
-client.on('message', function(msg) {
-  if(msg.content === prefix + "server") { 
-                  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return ;
-    if(!msg.channel.guild) return;        
-    let embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-    .setThumbnail(msg.guild.iconURL)
-    .addField(':globe_with_meridians: **اسم السيرفر : **' , `**[ ${msg.guild.name} ]**`,true)
-    .addField(':earth_africa: ** موقع السيرفر :**',`**[ ${msg.guild.region} ]**`,true)
-    .addField(':military_medal:** الرتب :**',`**[ ${msg.guild.roles.size} ]**`,true)
-    .addField(':bust_in_silhouette:** عدد الاعضاء :**',`**[ ${msg.guild.memberCount} ]**`,true)
-    .addField(':white_check_mark:** عدد الاعضاء الاونلاين :**',`**[ ${msg.guild.members.filter(m=>m.presence.status == 'online').size} ]**`,true)
-    .addField(':pencil:** الرومات الكتابية :**',`**[ ${msg.guild.channels.filter(m => m.type === 'text').size} ]**`,true)
-    .addField(':loud_sound:** رومات الصوت :**',`**[ ${msg.guild.channels.filter(m => m.type === 'voice').size} ]**`,true)
-    .addField(':crown:** صاحب السيرفر :**',`**[ ${msg.guild.owner} ]**`,true)
-    .addField(':id:** ايدي السيرفر :**',`**[ ${msg.guild.id} ]**`,true)
-    .addField(':date:** تم عمل السيرفر في : **',msg.guild.createdAt.toLocaleString())
-    msg.channel.send({embed:embed});
-  }
-});
-
-client.on('message',async msg => {
-     if(msg.channel.type === "dm") return;
-  if(msg.author.bot) return;
-  var p = "B.";
-  if(msg.content.startsWith(p + "setstats")) {
-  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
-  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
-  var ggg= msg.guild.createChannel('SERVER STATS', 'category').then(kk => {
-           var ccc =msg.guild.createChannel('SERVER STATS', 'voice').then(al => {
-                var aa =msg.guild.createChannel('SERVER STATS', 'voice').then(alp => {
-                   var aaa =msg.guild.createChannel('SERVER STATS', 'voice').then(alph => {
-       al.setParent(kk);
-       alp.setParent(kk);
-       alph.setParent(kk);
-       
-     al.overwritePermissions(msg.guild.id, {
-      CONNECT: false,
-      SPEAK: false
-    });
-     alp.overwritePermissions(msg.guild.id, {
-      CONNECT: false,
-      SPEAK: false
-    });
-     alph.overwritePermissions(msg.guild.id, {
-      CONNECT: false,
-      SPEAK: false
-    });
-  setInterval(() => {
-      var currentTime = new Date(),
-hours = currentTime.getHours() + 3 ,
-minutes = currentTime.getMinutes(),
-Seconds = currentTime.getSeconds(),
-Year = currentTime.getFullYear(),
-Month = currentTime.getMonth() + 1,
-Dat = currentTime.getDate()
-if (minutes < 10) {
-minutes = "0" + minutes;
-}
-var suffix = "AM";
-if (hours >= 12) {
-suffix = "PM";
-hours = hours - 12;
-}
-if (hours == 0) {
-hours = 12;
-}
-     al.setName(`Voice Online :[ ${msg.guild.members.filter(m => m.voiceChannel).size} ]`);
-      alp.setName(`Time :[${hours} : ${minutes} : ${Seconds} ${suffix}]`);
-        alph.setName(`[ Date : [${Year} - ${Month} - ${Dat} ]`);
- },1000);
-                   })
-    
-                })
-           })
-  })
-           
-  }
- 
 });
 
 client.login(process.env.BOT_TOKEN);
