@@ -673,29 +673,53 @@ client.on("message", message => {
        
   });
 
-client.on('message',async message => {
-  let args = message.content.split(" ").slice(1).join(" ");
-  let role = message.guild.roles.find('name',args) || message.guild.roles.get(args);
+client.on('message', message => {
+      const embed = new Discord.RichEmbed();
+    if (message.content.startsWith("server")) {
+  let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
+      let region = {
+          "brazil": "Brazil",
+          "eu-central": "Central Europe",
+          "singapore": "Singapore",
+          "us-central": "U.S. Central",
+          "sydney": "Sydney",
+          "us-east": "U.S. East",
+          "us-south": "U.S. South",
+          "us-west": "U.S. West",
+          "eu-west": "Western Europe",
+          "vip-us-east": "VIP U.S. East",
+          "london": "London",
+          "amsterdam": "Amsterdam",
+          "hongkong": "Hong Kong"
+      };
  
- 
-  if(message.content.startsWith(prefix + "role-info")) {
-    if(!args) return message.reply('اكتب اسم الرتبة');
-    if(!role) return message.reply('هذه الرتبة غير موجودة');
-    let iQp = new Discord.RichEmbed()
-    .setAuthor(message.author.tag,message.author.avatarURL)
-    .setTitle(message.guild.name)
-    .setThumbnail(message.guild.iconURL)
-    .addField('- اسم الرتبة',role.name,true)
-    .addField('- اي دي الرتبة',role.id,true)
-    .addField('- تم انشاء الرتبة',role.createdAt.toLocaleString(),true)
-    .addField('- لون الرتبة',role.hexColor,true)
-    .addField('- عدد الاعضاء الذي لديهم نفس الرتبة',role.members.size,true)
-    .addField('- مركز الرتبة بين كل الرتب',role.position,true)
-    .addField('- خصائص الرتبة',role.permissions,true)
-    .setFooter(message.author.tag,message.author.avatarURL);
- 
-    message.channel.send(iQp);
+      var emojis;
+      if (message.guild.emojis.size === 0) {
+          emojis = 'None';
+      } else {
+          emojis = message.channel.guild.emojis.map(e => e).join(" ");
+      }
+  embed.setAuthor(message.guild.name, message.guild.iconURL ? message.guild.iconURL : client.user.displayAvatarURL)
+  .setThumbnail(message.guild.iconURL ? message.guild.iconURL : me.user.displayAvatarURL)
+  .addField("• Created", `${message.guild.createdAt.toString().substr(0, 15)},\n${checkDays(message.guild.createdAt)}`, true)
+  .addField("• ID", message.guild.id, true)
+  .addField("• Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
+  .addField("• Region", region[message.guild.region], true)
+  .addField("• Members", message.guild.memberCount, true)
+  .addField("• Roles", message.guild.roles.size, true)
+  .addField("• Channels", message.guild.channels.size, true)
+  .addField("• Emojis", emojis, true)
+  .addField("• Verification Level", verifLevels[message.guild.verificationLevel], true)
+  .addField("• Default Channel", message.guild.defaultChannel, true)
+  .setColor(3447003)
+  message.channel.send({embed});
   }
 });
+function checkDays(date) {
+    let now = new Date();
+    let diff = now.getTime() - date.getTime();
+    let days = Math.floor(diff / 86400000);
+    return days + (days == 1 ? " day" : " days") + " ago";
+    };
 
 client.login(process.env.BOT_TOKEN);
