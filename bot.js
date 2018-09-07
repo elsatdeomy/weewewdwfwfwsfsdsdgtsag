@@ -571,7 +571,6 @@ client.on('message', message => {
  const now = new Date();
  const stats2 = ['online', 'Low', 'Medium', 'Insane'];
  const days = millis / 1000 / 60 / 60 / 24;
-               let time = `${dateFormat(defineduser.createdAt)}`
  var heg;
   if(men) {
       heg = men
