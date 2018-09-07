@@ -667,7 +667,6 @@ client.on('message', message => {
        if(mentionned){
            var time2 = `${dateFormat(message.mentions.users.first.joinedAt)}`;
        } else {
-           var time2 = `${dateFormat(message.member.joinedAt)}`;
  
        }
  
