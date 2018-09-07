@@ -709,7 +709,7 @@ client.on('message', message => {
                          ctx.fontSize = '13px';
                          ctx.fillStyle = "#ffffff";
                          ctx.textAlign = "center";
-                         ctx.fillText(`${moment(defineduser.createdTimestamp).fromNow()}`, 179 , 226 );
+                         
  
  
  
