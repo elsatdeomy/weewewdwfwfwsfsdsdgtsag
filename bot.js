@@ -549,7 +549,7 @@ if (command === prefix+ `join`) {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith ("!id")) {
+    if (message.content.startsWith ("Bc.id")) {
  
  if(!message.channel.guild) return;
  
@@ -701,7 +701,6 @@ client.on('message', message => {
        if(mentionned){
            var time2 = `${dateFormat(message.mentions.users.first.joinedAt)}`;
        } else {
-           var time2 = `${dateFormat(message.member.joinedAt)}`;
  
        }
  
