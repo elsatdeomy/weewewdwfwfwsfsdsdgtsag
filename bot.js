@@ -15,7 +15,7 @@ const client = new Discord.Client({disableEveryone: true});
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`OF A7 OF A7`,"http://twitch.tv/S-F")
+client.user.setGame(`Apple|BOT`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
