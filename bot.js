@@ -545,8 +545,8 @@ if (command === prefix+ `join`) {
         message.member.voiceChannel.join()
     message.channel.send('**Joined**')
 };
-
 });
+
 
 client.on('message',async msg => {
      if(msg.channel.type === "dm") return;
