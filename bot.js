@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const Util = require('discord.js');
-const prefix = ".";
+const prefix = "A.";
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
@@ -39,34 +39,9 @@ client.user.setGame(`Apple|BOT`,"http://twitch.tv/S-F")
   console.log('')
 });
 
-client.on('message', msg => {
-	var prefix = "B.";
-  if (msg.author.bot) return;
-  if (!msg.content.startsWith(prefix)) return;
-  let command = msg.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  let args = msg.content.split(" ").slice(1);
-
-    if(command === "clr") {
-        const emoji = client.emojis.find("name", "wastebasket")
-    let textxt = args.slice(0).join("");
-    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
-    if (textxt == "") {
-        msg.delete().then
-    msg.channel.send("***```Supply A Number ??```***").then(m => m.delete(3000));
-} else {
-    msg.delete().then
-    msg.delete().then
-    msg.channel.bulkDelete(textxt);
-        msg.channel.send("```Cleard: " + textxt + "\n Messages```").then(m => m.delete(3000));
-        }
-    }
-}
-});
-
 client.on('message', message => {
               if(!message.channel.guild) return;
-    var prefix = "B.";
+    var prefix = "A.";
     if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
@@ -107,61 +82,6 @@ client.on('message', message => {
     }
     });
 
-client.on('message',async msg => {
-  var p = "B.";
-  if(msg.content.startsWith(p + "settime")) {
-  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
-  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
-  msg.guild.createChannel(`Time :[]` , 'voice').then(time => {
-    time.overwritePermissions(msg.guild.id, {
-      CONNECT: false,
-      SPEAK: false
-    });
-  setInterval(() => {
-      var currentTime = new Date(),
-hours = currentTime.getHours() + 2 ,
-minutes = currentTime.getMinutes(),
-Seconds = currentTime.getSeconds()
-if (minutes < 10) {
-minutes = "0" + minutes;
-}
-var suffix = "AM";
-if (hours >= 12) {
-suffix = "PM";
-hours = hours - 12;
-}
-if (hours == 0) {
-hours = 12;
-}
-      time.setName(`Time :[${hours} : ${minutes} : ${Seconds} ${suffix}]`);
- },1000);
-  });
-  }
- 
-});
-
-client.on('message',async msg => {
-  var p = "B.";
-  if(msg.content.startsWith(p + "setdate")) {
-  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
-  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
-  msg.guild.createChannel(`date :[]` , 'voice').then(time => {
-    time.overwritePermissions(msg.guild.id, {
-      CONNECT: false,
-      SPEAK: false
-    });
-  setInterval(() => {
-      var currentTime = new Date(),
-Year = currentTime.getFullYear(),
-Month = currentTime.getMonth() + 1,
-Dat = currentTime.getDate()
-      time.setName(`Date : [${Year} - ${Month} - ${Dat}]]`);
- },1000);
-  });
-  }
- 
-});
-
 client.on("message", (message) => {
             const args = message.content.split(" ").slice(1).join(" ")
 if (message.content.startsWith("leave")) {
@@ -172,7 +92,7 @@ client.guilds.get(message.content.split(" ")[1]).leave();
 
 client.on('message', message => {   
 if (message.author.boss) return;
-var prefix = "B.";
+var prefix = "A.";
 if (!message.content.startsWith(prefix)) return;
 let command = message.content.split(" ")[0];
 command = command.slice(prefix.length);
@@ -215,7 +135,7 @@ ${user} انت معاقب بميوت كتابي بسبب مخالفة القوا
  
   let command = message.content.split(" ")[0];
  
-  if (command === "B.unmute") { // حط البرفكس حقت بوتك قبل الامر
+  if (command === "A.unmute") { // حط البرفكس حقت بوتك قبل الامر
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
@@ -301,12 +221,6 @@ client.on('guildMemberAdd',async member => {
 });
 });
 });
-
-
-
-
-
-
 
 client.on('message', async msg => { 
 	if (msg.author.bot) return undefined;
@@ -547,11 +461,10 @@ if (command === prefix+ `join`) {
 };
 });
 
-
 client.on('message',async msg => {
      if(msg.channel.type === "dm") return;
   if(msg.author.bot) return;
-  var p = "*";
+  var p = "A.";
   if(msg.content.startsWith(p + "setstats")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
@@ -738,5 +651,26 @@ if(!message.channel.guild) return;
    })
 
 } });
+
+client.on("message", message => {
+              var args = message.content.substring(prefix.length).split(" ");
+              if (message.content.startsWith(prefix + "cchat")) {
+                  if(!message.channel.guild) return message.reply('**❌ ليس لديك رتبة ادمن **');         
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**🚫  MANAGE_MESSAGES ليس لديك رتبة ادمن او بريم 🚫 **');
+          var msg;
+          msg = parseInt(); ///KillerFox AlphaCodes
+        
+        message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error); ///KillerFox AlphaCodes
+        message.channel.sendMessage("", {embed: { ///KillerFox AlphaCodes
+          title: "** ➡ تــم مسح الشات ⬅ **",
+          color: 0x06DF00,
+          footer: { ///KillerFox AlphaCodes
+            
+          }
+        }}).then(msg => {msg.delete(10000)});
+                            }
+  
+       
+  });
 
 client.login(process.env.BOT_TOKEN);
