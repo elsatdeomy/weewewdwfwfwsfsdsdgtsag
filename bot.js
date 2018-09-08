@@ -737,7 +737,7 @@ if (command == "z5rf") {
     let say = new Discord.RichEmbed()
     .setTitle('Text emboss :')
 
-   message.reply(`\n ${zalgo(args.join(' '))}`);
+   message.reply(`\n ${client(args.join(' '))}`);
   }
 
 });
