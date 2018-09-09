@@ -725,27 +725,6 @@ message.channel.send(
 };
 });
 client.on('message', message => {
-                if(message.content === prefix + "inv") {
-                    let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:arrow_right: Invite Galaxy Bot!**")
-                    .setURL("https://discordapp.com/oauth2/authorize?client_id=435392018693488641&scope=bot&permissions=2146958591");
-                   message.channel.sendEmbed(embed);
-                  }
-});
-
-
-   client.on('message', message => {
-     if (message.content === "G.support") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/qEPMJgb**")
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
-client.on('message', message => {
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'bk')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
