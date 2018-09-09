@@ -3036,4 +3036,15 @@ message.channel.sendEmbed(sh);
 }
 })
 
+client.on('message', message => {
+ if (message.content.startsWith('G.مريم')) {
+  var mariam= new Discord.RichEmbed()
+  .setTitle("لعبة مريم ..")
+  .setColor('RANDOM')
+  .setDescription(`${zead[Math.floor(Math.random() * zead.length)]}`)
+  .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
+   message.channel.sendEmbed(mariam);
+  }
+});
+
 client.login(process.env.BOT_TOKEN)
