@@ -371,23 +371,6 @@ client.on('message', function(msg) {
     })
 }
 });
- client.on('message', message => {
-              if (!message.channel.guild) return;
-      if(message.content =='G.count')
-	 
-      message.reply(`**${message.guild.memberCount}**`);
-    });
-    client.on('message', message => {
-   if(message.content.startsWith(prefix + "invites")) {
-      let user = message.mentions.users.first() || message.author
-      let personalInvites = invs.filter(i => i.inviter.id === user.id);
-      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-message.channel.send(`${user} has ${inviteCount} invites.`);
-});
-	    
-  }
-});
- 
 client.on("message", async message => {
             if(!message.channel.guild) return;
              if(message.content.startsWith(prefix + 'invite-codes')) {
