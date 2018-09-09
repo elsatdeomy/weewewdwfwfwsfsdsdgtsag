@@ -384,9 +384,11 @@ client.on('message', function(msg) {
       let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
 message.channel.send(`${user} has ${inviteCount} invites.`);
 });
+	    
   }
 });
- client.on("message", async message => {
+ 
+client.on("message", async message => {
             if(!message.channel.guild) return;
              if(message.content.startsWith(prefix + 'invite-codes')) {
 let guild = message.guild
