@@ -3099,7 +3099,7 @@ console.log('[38ab] Send By: ' + message.author.username)
 });
 
 client.on('guildMemberAdd', member => {
-     const welcomer =  member.guild.channels.find('name', 'اسم روم الترحيب');
+     const welcomer =  member.guild.channels.find('name', '𝐜𝐡𝐚𝐭');
 const w = ['./w1.png'];
  
          let image = Canvas.Canvas.image,
@@ -3163,7 +3163,7 @@ function forEachObject(obj, func) {
 client.on("ready", () => {
     var guild;
     while (!guild)
-        guild = client.guilds.get("ايدي سيرفرك ");
+        guild = client.guilds.get("479072814222278657");
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -3175,7 +3175,7 @@ client.on("ready", () => {
  
  
 client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.get("ايدي الروووووم");
+    let channel = member.guild.channels.get("488140618741317653");
     if (!channel) {
         console.log("!the channel id it's not correct");
         return;
@@ -3186,7 +3186,7 @@ client.on("guildMemberAdd", (member) => {
     console.log('-');
     var guild;
     while (!guild)
-        guild = client.guilds.get("ايدي سيررفرك");
+        guild = client.guilds.get("479072814222278657");
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
