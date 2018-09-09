@@ -3110,7 +3110,7 @@ member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    var Canvas = require('canvas') yumz = member.guild.channels.find("name", `${sChannel}`);
+    var Canvas = require('canvas') yumz = member.guild.channels.find("name", `${𝐜𝐡𝐚𝐭}`);
      yumz.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
   });
       var Canvas = require('canvas')
