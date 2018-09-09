@@ -3102,7 +3102,7 @@ client.on('guildMemberAdd', member => {
      const welcomer =  member.guild.channels.find('name', '𝐜𝐡𝐚𝐭');
 const w = ['./w1.png'];
  
-         let image = Canvas.Canvas.image,
+         let image = Canvas.image,
             canvas = new Canvas(400, 200),
             ctx = canvas.getContext('2d');
         fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
