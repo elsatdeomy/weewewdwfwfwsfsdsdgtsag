@@ -3101,7 +3101,7 @@ console.log('[38ab] Send By: ' + message.author.username)
 client.on('guildMemberAdd', member => {
      const welcomer =  member.guild.channels.find('name', '𝐜𝐡𝐚𝐭');
 const w = ['./w1.png'];
- 
+ var canvas = require("canvas");
          let Image = Canvas.Image,
             canvas = new Canvas(400, 200),
             ctx = canvas.getContext('2d');
