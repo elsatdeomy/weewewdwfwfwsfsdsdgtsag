@@ -648,28 +648,6 @@ message.channel.send({embed});
 
 }
 });
-client.on('message', message => {
-    if (message.content.startsWith("G.bans")) {
-        message.guild.fetchBans()
-        .then(bans => message.channel.send(`Number of banned persons **${bans.size}** `))
-}
-});
-client.on('message', message => {
-    if (message.content.startsWith("G.avatar")) {
-if(!message.channel.guild) return;
-        var mentionned = message.mentions.users.first();
-    var client;
-      if(mentionned){
-          var client = mentionned; } else {
-          var client = message.author;
-      }
-        const embed = new Discord.RichEmbed()
-                           .addField('Requested by:', "<@" + message.author.id + ">")
-        .setColor(000000)
-        .setImage(`${client.avatarURL}`)
-      message.channel.sendEmbed(embed);
-    }
-});
 const mapping = {
   ' ': '   ',
   '0': ':zero:',
